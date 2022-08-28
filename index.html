@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mundo Invertido | Semana Front-end</title>
+    <link rel="shortcut icon" href="./assets/images/backgrounds/icon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
   </head>
+
   <body class="light-theme" aria-label="O site está utilizando o tema light" role="body">
     <header aria-label="Cabeçalho da página.">
       <audio id="music" autoplay>
-        <source src="assets/musics/normal-world.mpeg" aria-details="Audio do site" />
+        <source src="assets/audio/normal-world.mpeg" aria-details="Audio do site" />
       </audio>
       <div class="header-content">
         <img class="invert-element" src="assets/images/banner/logo.svg" alt="Imagem principal Mundo Invertido. Semana Frontend DIO." />
@@ -33,7 +38,7 @@
 
       <section id="section-inverted-world" class="container">
         <div class="section-texts">
-          <h1>O Mundo Invertido</h1>
+          <h2>O Mundo Invertido</h2>
           <p role="text">
             O Mundo Invertido parece uma cópia do nosso mundo, mas com criaturas
             horrendas, tempestades assustadoras, muita escuridão e entidades
@@ -51,10 +56,11 @@
 
       <section id="section-stranger-things-trailer" class="container">
         <div class="video-frame" aria-hidden="true">
+         
           <iframe
-            width="460"
-            height="215"
-            src="https://www.youtube.com/embed/SJ9EFhQ3ANQ?controls=0"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/b6XKRA2DFQI"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -77,13 +83,13 @@
           <h2>A segunda série mais assistida da Netflix</h2>
           <ul class="gallery-container" role="gallery">
             <li class="gallery-image invert-element">
-              <img src="assets/images/content/serie-image-01.png" alt="Imagem de Vecna" />
+              <img src="assets/images/content/serie-image-01.jpg" alt="Imagem de Vecna" />
             </li>
             <li class="gallery-image invert-element">
-              <img src="assets/images/content/serie-image-02.png" alt="Imagem ilustrativa dos amigos de Eleven" />
+              <img src="assets/images/content/serie-image-02.jpg" alt="Imagem ilustrativa dos amigos de Eleven" />
             </li>
             <li class="gallery-image invert-element">
-              <img src="assets/images/content/serie-image-03.png" alt="Imagem Eleven assustada" />
+              <img src="assets/images/content/serie-image-03.jpg" alt="Imagem Eddie Munson Hellfire Club" />
             </li>
           </ul>
         </div>
@@ -126,15 +132,46 @@
 
     <footer>
       <p>
-        Projeto construído para fins didáticos, com o objetivo de colocar em
-        prática os conhecimentos de HTML, CSS e JavaScript aprendidos na DIO._
+        © <a href="https://github.com/matheusdias20">Matheus</a>. Todos os direitos reservados
       </p>
-      <img src="assets/images/footer/logo.svg" alt="">
+      <div class="footer-social-media">
+        <a href="https://github.com/matheusdias20" class="footer-icon" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/matheus-vieira-dias/" class="footer-icon" target="_blank">
+          <i class="ri-linkedin-box-line"></i>
+        </a>
+
+        <a href="https://matheusvieira.tech" class="footer-icon" target="_blank">
+          <i class="ri-terminal-window-line"></i>
+        </a>
+      </div>
     </footer>
     
     <script type="module" src="assets/js/main.js"></script>
+
     <script>
-      
+
+      window.addEventListener('click', function() {
+        const audio = document.getElementById('music')
+        audio.play();
+        audio.volume = 0.2; 
+      })
+
+      function switchTheme() {
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        const theme = document.body.classList[0];
+        const music = theme === 'light-theme' ? 'normal-world.mp3' : 'inverted-world.mpeg'
+
+        const audio = document.getElementById('music');
+        audio.src = `assets/audio/${music}`;
+        audio.play();
+        audio.loop = true;
+        audio.volume = 0.2
+      }
     </script>
   </body>
 </html>
